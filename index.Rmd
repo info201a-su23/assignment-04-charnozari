@@ -1,66 +1,44 @@
 ---
 title: "A3: Incarceration"
 output: html_document
+knitr:
+  progress: FALSE
 ---
-```{r, echo=FALSE} 
-source("summary.R")
+
+```{r setup, echo=FALSE} 
+source("C:/Users/charl/info201/assignment-04-charnozari/summary.R")
 ```
+
 ### Introduction
+
 In this report I will be examining the data set of the prison population rate per 100,000 people starting in 1990. I will compare the average prison population rates of different races and genders. This is important because people of color are incarcerated at disproportionately high rates compared to white people, which is considered to be the result of both historical and present-day systemic racism. It is important to examine the trends and comparisons seen in this data to possibly help identify areas that need more attention.
 
 ### Summary Information
 
-While examining the data, I could see that it shows that people of color are incarcerated at significantly higher rates than white people, with black people being incarcerated the most. 
-The average population of white prisoners per 100,000 is 
-`r mean_white_prison_pop_rate_function` . 
-The average population of Latinx prisoners per 100,000 is 
-`r mean_latinx_prison_pop_rate_function`. 
-The average population of AAPI prisoners per 100,000 is 
-`r mean_aapi_prison_pop_rate_function`. 
-The average population of native prisoners per 100,000 is 
-`r mean_native_prison_pop_rate_function`.  
-The average population of black prisoners per 100,000 is 
-`r mean_black_prison_pop_rate_function`.
-
-```{r, echo=FALSE} 
-source("summary.R")
-
-```
+While examining the data, I could see that it shows that people of color are incarcerated at significantly higher rates than white people, with black people being incarcerated the most. The average prison population of white people per 100,00 is `r mean_white_prison_pop_rate_function()`. The average prison population of native people per 100,00 is `r mean_native_prison_pop_rate_function()`. The average prison population of latinx people per 100,00 is `r mean_latinx_prison_pop_rate_function()`. The average prison population of aapi people per 100,00 is `r mean_aapi_prison_pop_rate_function()`. The average prison population of black people per 100,00 is `r mean_black_prison_pop_rate_function()`. The average for black people is the highest, followed by latinx people, native people, white people, and finally AAPI people.
 
 ### The Dataset
 
-The data was collected by the Vera Institute of Justice
-
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
-
+The data was collected by the Vera Institute of Justice. They merged data from multiple datasets such as the Census of Jails (COJ), the Annual Survey of Jails (ASJ), and BJS National Corrections Reporting Program (NCRP). They collect this data because they believe that by examining the data and identifying trends within the dataset, we can create programs and initiatives to end mass incarceration. There are 23 features of the dataset and 91031 observations. Working with the Vera Institute of Justice incarceration trends dataset raises important ethical questions and considerations regarding privacy, fairness, and consent. Researchers must ensure the confidentiality of individuals' information and be mindful of potential biases in the data. Striving for transparency and accountability in research methods is crucial to address power imbalances and minimize harm while conducting responsible analysis.The Vera Institute of Justice incarceration trends dataset, while valuable, comes with certain limitations that researchers need to acknowledge. One potential concern is data quality, as criminal justice data may be susceptible to errors, omissions, or inconsistencies. For example, there are multiple rural regions that do not have data regarding the race of prisoners, which results in gaps in the data. Additionally, the dataset might lack critical variables that influence incarceration trends, such as socioeconomic factors or mental health issues. Selection bias can also be a concern, as the dataset may not represent the entire criminal justice system accurately. Moreover, the dynamic nature of definitions and practices over time makes it challenging to compare trends across different periods. Researchers must tread carefully, utilize robust methodologies, and consider alternative data sources to address these limitations and produce reliable and insightful findings.
 
 ### Trends Over Time Chart
 
 This is a chart comparing the mean prison populations of white men and black men. I included this chart in order to highlight racial inequalities of incarceration rates. As you can see, there was a large spike in the prison population around 1997, but black male prison rates are significantly higher than white male prison rates.
 
 
-```{r, echo = FALSE, code = readLines("TrendOverTime.R")}
+```{r, echo = FALSE, warning=FALSE, message=FALSE, code = readLines("TrendOverTime.R")}
 ```
 
 ### Variable Comparison Chart
 
 This is a line graph that compares the prison population of black men and black women. I included this chart to show that black men have been imprisoned significantly more than black women over time. There seems to be a large spike in the prison population around the year 1995 in both demographics, with a much larger spike in the black male prison population.
 
-```{r, echo = FALSE, code = readLines("ComparisonGraph.R")}
+```{r, echo = FALSE, warning = FALSE, code = readLines("ComparisonGraph.R")}
 ```
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+This is a map that shows the average prison population of black people in Washington State, separated by county. The highest values are seen in urban areas, such as the Seattle Area. 
 
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-
+```{r, echo = FALSE, warning = FALSE, message = FALSE, progress = FALSE, code = readLines("Map.R")}
+```
